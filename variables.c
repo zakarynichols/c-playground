@@ -18,6 +18,8 @@ int main(void) {
 
     int arithmetic = 0;
 
+
+    // These shorthands are equivelant to "arithmetic = arithmetic (operator) (value);"
     arithmetic += 3;
     printf("%d\n", arithmetic);
     arithmetic -= 8;
