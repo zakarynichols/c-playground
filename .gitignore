@@ -1,3 +1,7 @@
+# Executables
 functions
 variables
+pointers
+
+# Ignore auto-generated vscode settings, for now
 .vscode
