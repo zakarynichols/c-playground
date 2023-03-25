@@ -28,6 +28,23 @@ int main(void) {
     int s = 0;
     scanf("%d", &s);  // scanf dereferences the pointer to modify the variable it points to
     printf("s is %d\n", i);
+
+    // The NULL pointer
+    int *pointer;
+    pointer = NULL;  // doesn't point to anything
+    // *pointer = 12;   // Segmentation fault
+
+    // sizeof and pointers
+    int *point;
+
+    // Prints size of an 'int'
+    printf("%zu\n", sizeof(int));  // 4
+    // p is type 'int *', so prints size of 'int*'
+    printf("%zu\n", sizeof point);  // 8
+    // *p is type 'int', so prints size of 'int'
+    printf("%zu\n", sizeof *point);  // 4
+
+    // sizeof is all about the _type_ of expression, not the variables in the expression themselves
 }
 
 void increment(int *p) {
