@@ -18,14 +18,14 @@ int main(void) {
 
     int arithmetic = 0;
 
-    arithmetic = arithmetic + 3;
+    arithmetic += 3;
     printf("%d\n", arithmetic);
-    arithmetic = arithmetic - 8;
+    arithmetic -= 8;
     printf("%d\n", arithmetic);
-    arithmetic = arithmetic * 9;
+    arithmetic *= 9;
     printf("%d\n", arithmetic);
-    arithmetic = arithmetic / 2;
+    arithmetic /= 2;
     printf("%d\n", arithmetic);
-    arithmetic = arithmetic % 5;
+    arithmetic %= 5;
     printf("%d\n", arithmetic);
 }
