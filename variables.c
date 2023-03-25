@@ -15,4 +15,17 @@ int main(void) {
     if (x) {
         printf("x is true!\n");
     }
+
+    int arithmetic = 0;
+
+    arithmetic = arithmetic + 3;
+    printf("%d\n", arithmetic);
+    arithmetic = arithmetic - 8;
+    printf("%d\n", arithmetic);
+    arithmetic = arithmetic * 9;
+    printf("%d\n", arithmetic);
+    arithmetic = arithmetic / 2;
+    printf("%d\n", arithmetic);
+    arithmetic = arithmetic % 5;
+    printf("%d\n", arithmetic);
 }
