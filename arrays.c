@@ -4,6 +4,9 @@ int main(void) {
     int i;
     float f[4];  // Declare an array of 4 floats. Must give a fixed size.
 
+    printf("%zu\n", sizeof(float[4]));
+    printf("%zu\n", sizeof(float));
+
     f[0] = 3.14;
     f[1] = 1.41;
     f[2] = 1.61;
@@ -14,4 +17,8 @@ int main(void) {
     for (i = 0; i < 4; i++) {
         printf("%f\n", f[i]);
     }
+
+    size_t len = sizeof(f) / sizeof(float);
+
+    printf("length of array is %zu\n", len);
 }
