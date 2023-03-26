@@ -50,4 +50,10 @@ int main(void) {
 
     // Let C compute the size of the array
     int h[] = {1, 2, 3};  // Leave out the size
+
+    int j[5] = {22, 37, 3490, 18, 95};
+
+    for (i = 0; i < 10; i++) {
+        printf("%d\n", j[i]);  // Printing too many elements. Will result in _undefined behavior_
+    }
 }
