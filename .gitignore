@@ -3,5 +3,7 @@ functions
 variables
 pointers
 arrays
+strings
+
 # Ignore auto-generated vscode settings, for now
 .vscode
