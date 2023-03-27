@@ -4,6 +4,7 @@ variables
 pointers
 arrays
 strings
+structs
 
 # Ignore auto-generated vscode settings, for now
 .vscode
