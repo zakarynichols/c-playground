@@ -1,10 +1,5 @@
 # Executables
-functions
-variables
-pointers
-arrays
-strings
-structs
+exe
 
 # Ignore auto-generated vscode settings, for now
 .vscode

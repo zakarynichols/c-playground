@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "*.svg": "html",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "cstdio": "c",
+        "stdbool.h": "c"
     }
 }
