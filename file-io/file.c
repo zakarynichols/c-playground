@@ -77,4 +77,37 @@ int main(void) {
     fputs("Hello, world!\n", fp);
 
     fclose(fp);
+
+    // Binary file I/O
+    unsigned char bytes[6] = {5, 37, 0, 88, 255, 12};
+
+    fp = fopen("output.bin", "wb");  // wb mode for "write binary"
+
+    // In the call to fwrite, the arguments are:
+    //
+    // * Pointer to data to write
+    // * Size of each "piece" of data
+    // * Count of each "piece" of data
+    // * FILE*
+
+    fwrite(bytes, sizeof(char), 6, fp);
+
+    fclose(fp);
+
+    unsigned char cha;
+
+    fp = fopen("output.bin", "rb");  // rb for "read binary"
+
+    while (fread(&cha, sizeof(char), 1, fp) > 0) {
+        printf("%d\n", cha);
+    }
+
+    // Struct and number caveats
+    fp = fopen("output.bin", "wb");  // wb mode for "write binary"
+
+    unsigned short v = 0x1234;  // Two bytes, 0x12 and 0x34
+
+    fwrite(&v, sizeof v, 1, fp);  // 'hd output.bin' results in 34 12 - The output is reversed due to _endianness_ of the architecture
+
+    // To write binary data in a portable way, serialize your binary data when writing it to a stream.
 }
