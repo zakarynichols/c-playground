@@ -2,23 +2,21 @@
 
 int main(void) {
     // Reading text files
-    FILE* f;  // Variable to represent an open file
+    FILE* fp;  // File pointer to represent an open file
 
-    f = fopen("hello_world.txt", "r");  // Open file for reading
+    fp = fopen("hello_world.txt", "r");  // Open file for reading
 
-    if (f == NULL) {
+    if (fp == NULL) {
         printf("File is NULL\n");
         return 1;
     }
 
-    int c = fgetc(f);   // Read a single character
+    int c = fgetc(fp);  // Read a single character
     printf("%c\n", c);  // Print char to stdout
 
-    fclose(f);  // Close the file when done
+    fclose(fp);  // Close the file when done
 
     // EOF
-    FILE* fp;
-
     int ch;
 
     fp = fopen("hello_world.txt", "r");
@@ -34,7 +32,7 @@ int main(void) {
 
     fclose(fp);
 
-    char s[1024];
+    char s[1024];  // Big enough for any line this program will encounter
     int line_count = 0;
 
     fp = fopen("quote.txt", "r");
@@ -44,9 +42,39 @@ int main(void) {
         return 1;
     }
 
+    printf("\n");
+
     while (fgets(s, sizeof s, fp) != NULL) {
         printf("%d: %s", ++line_count, s);
     }
+
+    printf("\n");
+
+    fclose(fp);
+
+    // Formatted input
+    char name[1024];  // Big enough for any line this program will encounter
+    float length;
+    int mass;
+
+    fp = fopen("whales.txt", "r");
+
+    // The fscanf() function skips leading whitespace when reading, and returns EOF on end-of-file or error.
+    while (fscanf(fp, "%s %f %d", name, &length, &mass) != EOF)
+        printf("%s whale, %d tonnes, %.1f meters\n", name, mass, length);
+
+    fclose(fp);
+
+    // Writing text files
+    int x = 32;
+
+    fp = fopen("output.txt", "w");
+    // fp = stdout; stdout is a file and will output to the console instead of a file
+
+    fputc('B', fp);
+    fputc('\n', fp);  // newline
+    fprintf(fp, "x = %d\n", x);
+    fputs("Hello, world!\n", fp);
 
     fclose(fp);
 }
