@@ -71,9 +71,19 @@ int main(void) {
     for (int i = 0; i < 5; i++)
         printf("*(pc++) = %d\n", *(pc++));  // Moving pointer pc
     // printf("%d\n", *(a++));    // Moving array variable a results in an error
+
+    // Array/Pointer Equivalence in Function Calls
+    char ch[] = "I'll work, too!";
+
+    printf("pass an array: %d\n", my_strlen(c));
+    printf("pass a pointer %d\n", my_strlen(pc));
+    printf("pass a char", my_strlen("Hello, world!"));
+    printf("pass a char[], %d\n", my_strlen(ch));
+
     return 0;
 }
 
+// This function can be passed an array, pointer, or char
 int my_strlen(char *s) {
     char *p = s;  // Start scanning from beginning of string
 
