@@ -47,6 +47,30 @@ int main(void) {
 
     printf("strlen = %d\n", my_strlen("Hello, world!"));
 
+    // Array pointer equivalence
+    printf("Array pointer equivalence\n");
+
+    int c[] = {11, 22, 33, 44, 55};
+
+    int *pc = c;  // p points to the first element of a, 11
+
+    // Print all elements of the array a variety of ways:
+
+    for (int i = 0; i < 5; i++)
+        printf("c[i] = %d\n", c[i]);  // Array notation with c
+
+    for (int i = 0; i < 5; i++)
+        printf("pc[i] = %d\n", pc[i]);  // Array notation with pc
+
+    for (int i = 0; i < 5; i++)
+        printf("*(c + i) = %d\n", *(c + i));  // Pointer notation with c
+
+    for (int i = 0; i < 5; i++)
+        printf("*(pc + i) = %d\n", *(pc + i));  // Pointer notation with pc
+
+    for (int i = 0; i < 5; i++)
+        printf("*(pc++) = %d\n", *(pc++));  // Moving pointer pc
+    // printf("%d\n", *(a++));    // Moving array variable a results in an error
     return 0;
 }
 
