@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int my_strlen(char *s);
 
@@ -73,17 +74,23 @@ int main(void) {
     // printf("%d\n", *(a++));    // Moving array variable a results in an error
 
     // Array/Pointer Equivalence in Function Calls
-    char ch[] = "I'll work, too!";
+    char m[] = "Mother nature";
+    char *w = "Wombats";
 
-    printf("pass an array: %d\n", my_strlen(c));
-    printf("pass a pointer %d\n", my_strlen(pc));
-    printf("pass a char", my_strlen("Hello, world!"));
-    printf("pass a char[], %d\n", my_strlen(ch));
+    printf("pass a char[]: %d\n", my_strlen(m));
+    printf("pass a pointer %d\n", my_strlen(w));
+
+    // Void pointers
+    char g[] = "Goats!";
+    char t[100];
+    memcpy(t, g, 7);  // Copy 7 bytes including the NUL terminator
+
+    printf("t copied = %s\n", t);
 
     return 0;
 }
 
-// This function can be passed an array, pointer, or char
+// This function can be passed an array or pointer
 int my_strlen(char *s) {
     char *p = s;  // Start scanning from beginning of string
 
