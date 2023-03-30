@@ -2,11 +2,11 @@
 
 int main(void) {
     // Adding to pointers
-    int a[5] = {11, 22, 33, 44, 55};
+    int a[6] = {11, 22, 33, 44, 55, 999};  // 999 is a sentinal value
 
     int *pa = &a[0];  // Get a pointer to the first element in the array
 
-    int b[3] = {33, 66, 99};
+    int b[3] = {33, 66, 99};  // 99 is a sentinal value
 
     int *pb = b;  // Works just as well
 
@@ -24,5 +24,18 @@ int main(void) {
         printf("pb = %d\n", *(pb + j));
     }
 
+    printf("Begin *pa while loop\n");
+    while (*pa != 999) {
+        printf("%d\n", *pa);
+        pa++;  // Move pa to the next int
+    }
+
+    printf("Begin *pb while loop\n");
+    while (*pb != 99) {
+        printf("%d\n", *pb);
+        pb++;  // Move pb to the next int
+    }
+
+    // Changing pointers
     return 0;
 }
