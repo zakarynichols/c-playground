@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+int my_strlen(char *s);
+
 int main(void) {
     // Adding to pointers
     int a[6] = {11, 22, 33, 44, 55, 999};  // 999 is a sentinal value
@@ -24,6 +26,8 @@ int main(void) {
         printf("pb = %d\n", *(pb + j));
     }
 
+    // Changing pointers
+
     printf("Begin *pa while loop\n");
     while (*pa != 999) {
         printf("%d\n", *pa);
@@ -36,6 +40,24 @@ int main(void) {
         pb++;  // Move pb to the next int
     }
 
-    // Changing pointers
+    // Subtracting pointers
+    // You can subtract an address to get an earlier address.
+    // Can subtract two pointers to get the difference. i.e. how many `int`s are between `*int*s
+    // ^^^ Only works with a single array ^^^ - If they point to anything else its undefined behavior
+
+    printf("strlen = %d\n", my_strlen("Hello, world!"));
+
     return 0;
 }
+
+int my_strlen(char *s) {
+    char *p = s;  // Start scanning from beginning of string
+
+    // Scan until we find a NUL character
+    while (*p != '\0') {
+        p++;
+    }
+
+    // Return the difference in pointers
+    return p - s;
+};
