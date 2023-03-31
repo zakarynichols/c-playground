@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main() {
     // Allocating and deallocating
@@ -13,7 +14,6 @@ int main() {
     printf("%d\n", *p);   // 12
     printf("%d\n", *pa);  // 24
 
-    free(p);
     free(pa);
 
     // Undefined behavior. Using variables after free-ing.
@@ -52,5 +52,13 @@ int main() {
 
     free(p);
 
+    // An alternative: calloc()
+
+    // Allocate space for 10 ints with calloc(), initialized to 0:
+    int *pc = calloc(10, sizeof(int));
+
+    // Allocate space for 10 ints with malloc(), initialized to 0:
+    int *qa = malloc(10 * sizeof(int));
+    memset(qa, 0, 10 * sizeof(int));  // set to 0
     return 0;
 }
