@@ -39,5 +39,18 @@ int main() {
     }
     printf("y= %d\n", *y);  // 0
 
+    // Allocating space for an array
+    int *pb = malloc(sizeof(int) * 10);
+
+    for (int i = 0; i < 5; i++) {
+        pb[i] = i * 5;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        printf("pb[i] = %d\n", pb[i]);
+    }
+
+    free(p);
+
     return 0;
 }
