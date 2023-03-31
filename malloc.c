@@ -20,5 +20,24 @@ int main() {
     printf("%d\n", *p);
     printf("%d\n", *pa);
 
+    // Error checking
+    int *x;
+
+    x = malloc(sizeof(int) * 10);
+
+    if (x == NULL) {
+        printf("Error allocating 10 ints\n");
+        // do something here to handle it
+    }
+    printf("x = %d\n", *x);  // 0
+
+    int *y;
+    // Common pattern.
+    if ((y = malloc(sizeof(int) * 10)) == NULL) {
+        printf("Error allocating 10 ints\n");
+        // do something here to handle it
+    }
+    printf("y= %d\n", *y);  // 0
+
     return 0;
 }
