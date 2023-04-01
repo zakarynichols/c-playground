@@ -60,5 +60,41 @@ int main() {
     // Allocate space for 10 ints with malloc(), initialized to 0:
     int *qa = malloc(10 * sizeof(int));
     memset(qa, 0, 10 * sizeof(int));  // set to 0
+
+    // Changing allocated size with realloc
+
+    // Allocate space for 20 floats
+    float *pd = malloc(sizeof *p * 20);  // sizeof *p same as sizeof(float)
+
+    // Assign them fractional values 0.0-1.0:
+    for (int i = 0; i < 20; i++) {
+        pd[i] = i / 20.0;
+    }
+
+    // Now make this an array of 40 elements
+    float *new_pd = realloc(pd, sizeof *pd * 40);
+
+    // Check to see if we successfully reallocated
+    if (new_pd == NULL) {
+        printf("Error reallocing\n");
+        return 1;
+    }
+
+    // If we did, we can just reassign pd. This pattern is common.
+    pd = new_pd;
+
+    // And assign the new elements values in the range 1.0-2.0
+    for (int i = 20; i < 40; i++) {
+        pd[i] = 1.0 + (i - 20) / 20.0;
+    }
+
+    // Print all values 0.0-2.0 in the 40 elements:
+    for (int i = 0; i < 40; i++) {
+        printf("pd[i] = %f\n", pd[i]);
+    }
+
+    // Free the space
+    free(pd);
+
     return 0;
 }
