@@ -113,10 +113,34 @@ int main(void) {
     }
 
     fclose(fp);
+
+    // Realloc with NULL
+
+    // These two lines are equivalent:
+    // char *p = malloc(3490);
+    // char *p = realloc(NULL, 3490);
+
+    // That could be convenient if you have some kind of allocation loop and you don’t want to special - case the first malloc().
+    int *ptr = NULL;  // Don't need an initial malloc() since ptr is NULL to start.
+
+    int length = 0;
+
+    bool done = false;
+
+    while (!done) {
+        // Allocate 10 more ints:
+        length += 10;
+        ptr = realloc(ptr, sizeof *ptr * length);
+
+        // Do amazing things
+        // ...
+    }
+
     return 0;
 }
 
-char *readline(FILE *fp) {
+char *
+readline(FILE *fp) {
     int offset = 0;   // Index next char goes in the buffer
     int bufsize = 4;  // Preferably power of 2 initial size
     char *buf;        // The buffer
@@ -131,8 +155,9 @@ char *readline(FILE *fp) {
     while (c = fgetc(fp), c != '\n' && c != EOF) {
         // Check if we're out of room in the buffer accounting
         // for the extra byte for the NUL terminator
-        if (offset == bufsize - 1) {  // -1 for the NUL terminator
-            bufsize *= 2;             // 2x the space
+        if (offset == bufsize - 1) {
+            // -1 for the NUL terminator
+            bufsize *= 2;  // 2x the space
 
             char *new_buf = realloc(buf, bufsize);
 
@@ -162,8 +187,7 @@ char *readline(FILE *fp) {
 
         // If successful, point buf to new_buf;
         // otherwise we'll just leave buf where it is
-        if (new_buf != NULL)
-            buf = new_buf;
+        if (new_buf != NULL) buf = new_buf;
     }
 
     // Add the NUL terminator
