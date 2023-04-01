@@ -125,7 +125,7 @@ int main(void) {
 
     int length = 0;
 
-    bool done = false;
+    bool done = true;
 
     while (!done) {
         // Allocate 10 more ints:
@@ -135,12 +135,23 @@ int main(void) {
         // Do amazing things
         // ...
     }
+    // Allocate 256 bytes aligned on a 64-byte boundary
+    char *pe = aligned_alloc(64, 256);  // 256 == 64 * 4
+
+    // Copy a string in there and print it
+    strcpy(pe, "Hello, world!");
+    printf("%s\n", pe);
+
+    // Free the space
+    free(pe);
+
+    // `realloc` doesn't guarantee alignment like `aligned_alloc`.
+    // Will have to `memcpy` aligned allocation is needed.
 
     return 0;
 }
 
-char *
-readline(FILE *fp) {
+char *readline(FILE *fp) {
     int offset = 0;   // Index next char goes in the buffer
     int bufsize = 4;  // Preferably power of 2 initial size
     char *buf;        // The buffer
