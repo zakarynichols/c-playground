@@ -14,4 +14,8 @@ int main(void) {
 
     printf("2*x^2 + 10*x + 5 = 0\n");
     printf("x = %f or x = %f\n", QUAD(2, 10, 5));
+
+    printf("%d %s\n", XSTR(1, 2, "hello", "world", 999));
+
+    PRINT_NUMS_TO_PRODUCT(2, 4);  // Outputs numbers from 0 to 7
 }

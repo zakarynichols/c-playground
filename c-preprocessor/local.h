@@ -15,4 +15,19 @@
 
 #define TRIANGLE_AREA(w, h) (0.5 * (w) * (h))
 
+// Variable arguments
+#define X(a, b, ...) (10 * (a) + 20 * (b)), __VA_ARGS_
+
+// Stringify by putting a '#' in front of __VA_ARGS__
+#define XSTR(a, b, ...) (10 * (a) + 20 * (b)), #__VA_ARGS__
+
+// Multi-line
+#define PRINT_NUMS_TO_PRODUCT(a, b)         \
+    do {                                    \
+        int product = (a) * (b);            \
+        for (int i = 0; i < product; i++) { \
+            printf("%d\n", i);              \
+        }                                   \
+    } while (0)
+
 #endif
