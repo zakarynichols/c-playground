@@ -4,5 +4,8 @@ exe
 # Text files
 *.txt
 
+# Object files
+*.o
+
 # Ignore auto-generated vscode settings, for now
 .vscode
