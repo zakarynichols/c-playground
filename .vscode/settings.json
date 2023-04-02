@@ -3,6 +3,7 @@
         "*.svg": "html",
         "stdio.h": "c",
         "cstdio": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "local.h": "c"
     }
 }
