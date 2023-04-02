@@ -4,5 +4,7 @@
 int add(int, int);
 void printa(void);
 void printb(void);
+void counter(void);
+int set_foo(int);
 
 #endif  // End of the #ifndef BAR_H

@@ -20,4 +20,14 @@ int main(void) {
     printb();
 
     printf("%d\n", add(2, 3));  // 5
+
+    counter();
+    counter();
+    counter();
+
+    printf("set_foo = %d\n", set_foo(20));
+
+    // Wont compile if you try to access a `static int foo` from bar.c
+    // extern int foo;
+    // foo = 50;
 }
