@@ -1,14 +1,12 @@
-// File foo.c
-
 #include <stdio.h>
 
 // The C preprocessor includes the file _right here_ just as if we'd typed it ourselves
 #include "bar.h"
 
-extern int a;
+extern int a;  // Can declare file scope
 
 int main(void) {
-    extern int b;
+    extern int b;  // Can also declare in block scope
 
     printf("from foo.c = %d\n", a);  // 37, from bar.c
     printa();

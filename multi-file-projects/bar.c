@@ -1,9 +1,6 @@
-// File bar.c
-
 #include <stdio.h>
 
 int a = 37;
-
 int b = 111;
 
 int add(int x, int y) {
