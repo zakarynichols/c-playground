@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 int main(int argc, char *argv[]) {
     printf("%s\n", "The outside environment");
 
     for (int i = 0; i < argc; i++) {
-        printf("arg %d: %s\n", i, argv[i]);
+        printf("argc = %d\n", i);
+        printf("argv = %s\n", argv[i]);
     }
+
+    printf("%s\n", argc[argv] == NULL ? "true" : "false");
 
     int total = 0;
 
