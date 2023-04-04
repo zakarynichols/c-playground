@@ -1,6 +1,20 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+// Anonymous struct used for later
+typedef struct {
+    int leg_count;
+    char *name;
+} organism;
+
+// `struct named_struct named_variable` is usually better. Can see the entire declaration.
+typedef struct named_struct {
+    char *named_member;
+} named_struct;
+
+organism d, e, f;
+
+// Anonymous struct
 struct foo {
     int a;
     int b;
@@ -27,6 +41,11 @@ struct spaceship_with_passengers {
     char *manufacturer;
     struct passenger passenger[MAX_PASSENGERS];
 };
+
+struct {  // No name
+    char *name;
+    int leg_count, speed;
+} a, b, c;  // 3 variables of this struct type
 
 int main(void) {
     // Initialize struct members
@@ -68,6 +87,12 @@ int main(void) {
                    spa.passenger[i].name,
                    spa.passenger[i].covid_vaccinated ? "" : "not ");
     }
+
+    a.leg_count = 4;
+    c.name = "animal";
+
+    d.leg_count = 2;
+    d.name = "organism";
 
     return 0;
 }
