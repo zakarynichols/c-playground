@@ -13,6 +13,19 @@ struct bar {
     unsigned int c : 3;
     unsigned int d : 3;
 };
+
+struct goo {
+    unsigned char a : 2;
+    unsigned char dummy : 5;
+    unsigned char b : 1;
+};
+
+struct gar {
+    unsigned char a : 2;
+    unsigned char : 5;  // unnamed bit-field
+    unsigned char b : 1;
+};
+
 int main(void) {
     printf("foo: %zu\n", sizeof(struct foo));  // 16
     printf("bar: %zu\n", sizeof(struct bar));  // 4
