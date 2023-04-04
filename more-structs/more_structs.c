@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Linked list node
 struct node {
@@ -53,6 +54,18 @@ struct {  // No name
     char *name;
     int leg_count, speed;
 } a, b, c;  // 3 variables of this struct type
+
+struct len_string {
+    int length;
+    char data[8];
+};
+
+struct better_len_string {
+    int length;
+    char data[];  // No size for array. Must be last member in the array to work.
+};
+
+struct len_string *len_string_from_c_string(char *s);
 
 int main(void) {
     // Initialize struct members
@@ -117,5 +130,24 @@ int main(void) {
         printf("%d\n", cur->data);
     }
 
+    struct len_string *str = malloc(sizeof *str + 40);
+
+    printf("string length = %d\n", len_string_from_c_string("Hello, world!")->length);
+    printf("data = %s\n", len_string_from_c_string("Hello, world!")->data);
+
     return 0;
+}
+
+struct len_string *len_string_from_c_string(char *s) {
+    int len = strlen(s);
+
+    // Allocate "len" more bytes than we'd normally need
+    struct len_string *ls = malloc(sizeof *ls + len);
+
+    ls->length = len;
+
+    // Copy the string into those extra bytes
+    memcpy(ls->data, s, len);
+
+    return ls;
 }
