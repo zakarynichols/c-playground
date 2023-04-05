@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Unions
+
 // Size of a union is the largest member sizeof. In this case 4 bytes.
 union foo {
     int a, b, c, d, e, f;
@@ -26,6 +28,8 @@ int main(void) {
     printf("%zu\n", sizeof(char));        // 1
     printf("%zu\n", sizeof(float));       // 4
     printf("%zu\n", sizeof(int));         // 4
+
+    // Type Punning
 
     // Since the members of a union share the same memory,
     // writing to one member necessarily affects the others.
